@@ -2,9 +2,9 @@ import os
 import pandas as pd
 
 #####ADAPTAR DATOS DE DEMANDA#####
-def demand_conv(dir_name):
+def demand_conv(dir_name, path):
     os.makedirs(f'./{dir_name}/demandData')
-    df = pd.read_excel('./results/red_pypsa_datos_20nudos_v1.xlsx', sheet_name='Loads_t')  # puedes usar el nombre o el índice de la hoja
+    df = pd.read_excel(f'{path}', sheet_name='Loads_t')  # puedes usar el nombre o el índice de la hoja
 
     # Detectar columnas que corresponden a nudos (empiezan por "ES")
     nodo_cols = [col for col in df.columns if str(col).startswith('ES')]

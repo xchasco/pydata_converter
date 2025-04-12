@@ -1,7 +1,10 @@
 import os
 
 from functions.demand_conv import demand_conv
+from functions.generator_conv import generator_conv
 
+
+path = './results/red_pypsa_datos_20nudos_v1.xlsx'
 dir_name = input('Introduce the name of the case: ')
 
 # Crear la carpeta si no existe
@@ -12,4 +15,9 @@ else:
     print(f"La carpeta '{dir_name}' ya existe.")
 
 #####ADAPTAR DATOS DE DEMANDA#####
-bus_info = demand_conv(dir_name=dir_name)
+bus_map = demand_conv(dir_name=dir_name, path=path)
+
+#####ADAPTAR DATOR DE GENERACIÓN CONVENCIONAL#####
+generator_conv(path=path, dir_name=dir_name, bus_map=bus_map)
+
+print(bus_map)
