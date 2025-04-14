@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-fn = 'C:/Users/josut/OneDrive/Escritorio/Python_TFM/pypsa_proc/networks/base_s_20_elec_.nc'
+fn = 'C:/Users/josuc/Desktop/Proyectos/pydata_converter/networks/base_s_20_elec_.nc'
 n = pypsa.Network(fn)
 
 # Exportar varias tablas a un archivo Excel
@@ -12,6 +12,7 @@ with pd.ExcelWriter("results/red_pypsa_datos.xlsx", engine="openpyxl") as writer
     n.lines.to_excel(writer, sheet_name="Lines")
     n.generators.to_excel(writer, sheet_name="Generators")
     n.loads_t.p.to_excel(writer, sheet_name="Loads_t")
+    n.generators_t.p.to_excel(writer, sheet_name="gen_t")
 
 
 #print(n.buses)
