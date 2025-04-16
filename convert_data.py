@@ -3,6 +3,7 @@ import os
 from functions.demand_conv import demand_conv
 from functions.generator_conv import generator_conv
 from functions.renewable_conv import renewable_conv
+from functions.lines_conv import lines_conv
 
 
 #path = './results/red_pypsa_datos_20nudos_v1.xlsx'
@@ -22,7 +23,10 @@ bus_map = demand_conv(dir_name=dir_name, path=path)
 #####ADAPTAR DATOR DE GENERACIÓN CONVENCIONAL#####
 generator_conv(path=path, dir_name=dir_name, bus_map=bus_map)
 
-#####ADAPTA DATOS DE GENERACIÓN RENOVABLE#####
+#####ADAPTAR DATOS DE GENERACIÓN RENOVABLE#####
 renewable_conv(path=path, dir_name=dir_name, bus_map=bus_map)
+
+#####ADAPTAR DATOS DE LAS LÍNEAS#####
+lines_conv(path=path, dir_name=dir_name, bus_map=bus_map)
 
 print(bus_map)

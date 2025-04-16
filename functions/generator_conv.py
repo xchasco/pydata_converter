@@ -1,7 +1,7 @@
 import pandas as pd
 
 def generator_conv(path, bus_map, dir_name):
-    df = pd.read_excel(f'{path}', sheet_name='Generators')  # puedes usar el nombre o el índice de la hoja
+    df = pd.read_excel(f'{path}', sheet_name='Generators')
 
     # Filtrar por tipo de tecnología
     filtered = df[df['carrier'].isin(['CCGT', 'nuclear'])].copy()
