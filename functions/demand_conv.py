@@ -41,7 +41,7 @@ def demand_conv(dir_name, path):
 
         # Guardar archivo CSV
         nombre_archivo = f'./{dir_name}/demandData/nodeData_{index+1}.csv'
-        bus_hour.to_csv(nombre_archivo, index=False)
+        bus_hour.to_csv(nombre_archivo, sep=";",index=False)
 
     print("¡Archivos de demanda generados con éxito!")
 

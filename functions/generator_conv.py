@@ -6,13 +6,6 @@ def generator_conv(path, bus_map, dir_name):
     # Filtrar por tipo de tecnología
     filtered = df[df['carrier'].isin(['CCGT', 'nuclear'])].copy()
 
-    '''
-    # Convertir columnas numéricas a float (por si vienen como texto)
-    filtered['p_nom'] = filtered['p_nom'].str.replace(',', '.').astype(float)
-    filtered['marginal_cost'] = filtered['marginal_cost'].str.replace(',', '.').astype(float)
-    filtered['capital_cost'] = filtered['capital_cost'].str.replace(',', '.').astype(float)
-    '''
-
     gen_table = pd.DataFrame(columns=[
     'bus', 'Pg', 'Qg', 'Qmax', 'Qmin', 'Vg', 'mBase', 'status',
     'Pmax', 'Pmin', 'c2', 'c1', 'c0'
@@ -38,4 +31,4 @@ def generator_conv(path, bus_map, dir_name):
             }])], ignore_index=True)
 
     # Guardar como CSV
-    gen_table.to_csv(f'./{dir_name}/generatorData.csv', index=False)
+    gen_table.to_csv(f'./{dir_name}/generatorData.csv', sep=";",index=False)

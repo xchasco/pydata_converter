@@ -35,4 +35,4 @@ def lines_conv(path, bus_map, dir_name):
     ]]
 
     # Guardar nuevo archivo CSV
-    df_matpower.to_csv(f'./{dir_name}/lineData.csv', index=False)
+    df_matpower.to_csv(f'./{dir_name}/lineData.csv', sep=";",index=False)

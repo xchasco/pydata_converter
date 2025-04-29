@@ -32,8 +32,8 @@ def renewable_conv(path, bus_map, dir_name):
         gen_df.sort_index(inplace=True)
         # Guardar como CSV
         if tech == 'solar':
-            gen_df.to_csv(f"{dir_name}/solarData.csv", float_format='%.6f')
+            gen_df.to_csv(f"{dir_name}/solarData.csv", sep=";",float_format='%.6f')
         elif tech == 'onwind':
-            gen_df.to_csv(f"{dir_name}/windData.csv", float_format='%.6f')
+            gen_df.to_csv(f"{dir_name}/windData.csv", sep=";",float_format='%.6f')
 
     print("Archivos de generación renovable se han generado correctamente.")
